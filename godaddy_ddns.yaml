@@ -1,0 +1,11 @@
+# GoDaddy DDNS configuration file
+
+# please fill in your API key & secret
+api-key: 
+secret: 
+
+ip-checker-url: http://whatismyip.akamai.com
+
+domain: 
+dns-arecords:
+
