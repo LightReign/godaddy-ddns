@@ -1,11 +1,11 @@
-# Godaddy DDNS
+# GoDaddy DDNS
 Provides DDNS functionality for GoDaddy managed DNS Domains
 
 ## Motivation
 If you like running your own webserver from home using a domain from GoDaddy but you have a dynamic IP address then this
 program could be the solution to your problem.
 
-This Ruby script detects your external IP address and updates A records in your GoDaddy domain for you. You can set this up in a cron or even daemonize it inside a shell script (be very, very careful its not designed for that) for automatic updates.
+This Ruby script detects your external IP address and updates A records in your GoDaddy domain for you. You can set this up in a cron or run it manually from the commandline.
 
 Before using this you will need to get your GoDaddy API-key and secret.
 
@@ -43,7 +43,7 @@ During execution the script writes to a file the users current external IP addre
 
 If there was a problem with connecting to the API an error will be reported to STDERR handy for capturing errors when run inside a cron.
 
-This script returns 0 on success and 1 on failure which can be handy.
+This script returns 0 on success and 1 on failure.
 
 ## Warranty
 This is free software and I offer no warranty whatsoever.

@@ -57,7 +57,7 @@ def update_godaddy(config, remote_ip, domain, record_type, record_name)
 
     case res
     when Net::HTTPSuccess, Net::HTTPRedirection
-        return false
+        return false # no errors = success
     else
         STDERR.puts "HTTP Error: #{res.code} #{res.message}: #{res.body}"
     end
