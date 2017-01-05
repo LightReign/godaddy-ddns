@@ -10,9 +10,12 @@ require 'net/https'
 require 'yaml'
 
 def get_config()
-   return YAML.load_file('godaddy_ddns.yaml') 
+    return YAML.load_file("#{get_file_path()}/godaddy_ddns.yaml") 
 end
 
+def get_file_path()
+    return File.dirname(File.realpath(__FILE__));
+end
 
 def get_remote_ip(url)
     return open(url).read
@@ -67,7 +70,7 @@ end
 
 ## Main
 
-ipaddr_filename = 'remote_ip.addr';
+ipaddr_filename = "#{get_file_path()}/remote_ip.addr";
 old_remote_ip = nil
 error = false
 
@@ -81,7 +84,6 @@ if (File.file?(ipaddr_filename))
     old_remote_ip = read_ipaddr_file(ipaddr_filename)
 end
 
-
 # if the ip address has changed then update!
 if (old_remote_ip != remote_ip)
     for record_name in config['dns-arecords']
@@ -94,3 +96,4 @@ if (old_remote_ip != remote_ip)
 end
 
 exit error ? 1 : 0
+
