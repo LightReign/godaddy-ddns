@@ -60,12 +60,12 @@ def update_godaddy(config, remote_ip, domain, record_type, record_name)
 
     case res
     when Net::HTTPSuccess, Net::HTTPRedirection
-        return false # no errors = success
+        return true # success
     else
         STDERR.puts "HTTP Error: #{res.code} #{res.message}: #{res.body}"
     end
 
-    return true
+    return false
 end
 
 ## Main
@@ -87,9 +87,9 @@ end
 # if the ip address has changed then update!
 if (old_remote_ip != remote_ip)
     for record_name in config['dns-arecords']
-        error = update_godaddy(config, remote_ip, config['domain'], 'A', record_name)
+        success = update_godaddy(config, remote_ip, config['domain'], 'A', record_name)
 
-        break if error
+        break unless success
     end
 
     write_ipaddr_file(ipaddr_filename, remote_ip) unless error

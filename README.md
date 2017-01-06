@@ -16,7 +16,7 @@ Before using this you will need to get your GoDaddy API-key and secret.
 1. Note down your API-key and secret.
 
 ## Requirements
-Tested on Ruby 2.3
+Ruby (>=1.9)
 
 ## Installation and Configration
 1. Check out this repository
