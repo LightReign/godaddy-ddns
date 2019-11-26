@@ -2,7 +2,7 @@
 # This script uses the GoDaddy API to update DNS A records 
 # automatically if you dynamic IP changes
 # 
-# Author: LightReign 12/2016
+# Author: A Pennington 12/2016
 
 require 'open-uri'
 require 'net/http'

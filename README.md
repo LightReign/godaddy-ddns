@@ -31,8 +31,8 @@ domain: yourdomain.com
 
 ```yaml
 dns-arecords:
-	- www
-	- mail
+    - www
+    - mail
 ```
 
 ## Running
